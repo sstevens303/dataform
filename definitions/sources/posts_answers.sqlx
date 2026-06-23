@@ -1,0 +1,5 @@
+for role in bigquery.jobUser bigquery.dataOwner bigquery.dataEditor secretmanager.secretAccessor; do \
+    gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$DATAFORM_SA" \
+    --role="roles/$role"; \
+    done
